@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: shop-test
+Implementation-Version: 1.0.2
+Built-By: yxl
+Implementation-Vendor-Id: com.jinglitong.springshop
+Build-Jdk: 1.8.0_144
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-shop/shop-test
+Created-By: Maven Integration for Eclipse
+

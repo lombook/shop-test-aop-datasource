@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinglitong.shop.mapper.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.jinglitong.shop.entity.Customer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="all_phone" property="allPhone" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
+    <result column="country_id" property="countryId" jdbcType="INTEGER" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+    <result column="certificate_state" property="certificateState" jdbcType="BIT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="reg_way" property="regWay" jdbcType="INTEGER" />
+    <result column="self_invite" property="selfInvite" jdbcType="VARCHAR" />
+    <result column="tree_level" property="treeLevel" jdbcType="INTEGER" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="favicon" property="favicon" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" javaType="INTEGER"/>
+  </resultMap>
+  <resultMap id="LevelResultMap" type="com.jinglitong.shop.entity.Customer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="all_phone" property="allPhone" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
+    <result column="country_id" property="countryId" jdbcType="INTEGER" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+    <result column="certificate_state" property="certificateState" jdbcType="BIT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="reg_way" property="regWay" jdbcType="INTEGER" />
+    <result column="self_invite" property="selfInvite" jdbcType="VARCHAR" />
+    <result column="tree_level" property="treeLevel" jdbcType="INTEGER" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="favicon" property="favicon" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" javaType="INTEGER"/>
+    <result column="level_define" property="levelDefine" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="infoResultMap" type="com.jinglitong.springshop.vo.request.CustomerVo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="all_phone" property="allPhone" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
+    <result column="country_id" property="countryId" jdbcType="INTEGER" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+    <result column="certificate_state" property="certificateState" jdbcType="BIT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="reg_way" property="regWay" jdbcType="INTEGER" />
+    <result column="self_invite" property="selfInvite" jdbcType="VARCHAR" />
+    <result column="tree_level" property="treeLevel" jdbcType="INTEGER" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="favicon" property="favicon" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" javaType="INTEGER"/>
+    <result column="level_define" property="levelDefine" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+
+    <association property="identityInfo" javaType="com.jinglitong.springshop.vo.request.IdentityInfoVo">
+      <id column="idId" property="id" jdbcType="INTEGER" />
+      <result column="idZid" property="zid" jdbcType="VARCHAR" />
+      <result column="cust_id" property="custId" jdbcType="VARCHAR" />
+      <result column="cust_name" property="custName" jdbcType="VARCHAR" />
+      <result column="identity_no" property="identityNo" jdbcType="VARCHAR" />
+      <result column="identity_type" property="identityType" jdbcType="VARCHAR" />
+      <result column="province_id" property="provinceId" jdbcType="INTEGER" />
+      <result column="city_id" property="cityId" jdbcType="INTEGER" />
+      <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+      <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+      <result column="auditstate" property="auditstate" jdbcType="VARCHAR" />
+      <result column="front_url" property="frontUrl" jdbcType="VARCHAR" />
+      <result column="back_url" property="backUrl" jdbcType="VARCHAR" />
+      <result column="province" property="province" jdbcType="VARCHAR" />
+      <result column="city" property="city" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <select id="selectByCustId" resultMap="infoResultMap">
+    select *,ii.id idId ,ii.zid idZid,ai.`NAME` province,aa.`NAME` city,cm.level_define levelDefine,cm.end_time endTime from customer c left join identity_info ii
+    on c.zid = ii.cust_id
+    LEFT JOIN area_dic ai
+    on ii.province_id  = ai.AREA_ID
+    LEFT JOIN area_dic aa
+    on ii.city_id = aa.AREA_ID
+    LEFT JOIN customer_member cm
+	on c.zid = cm.cust_id
+     where c.zid = #{zid}
+  </select>
+  <select id="getByCustId" resultMap="BaseResultMap">
+    select id,zid,invite_code,self_invite
+      from customer
+     where zid = #{zid}
+  </select>
+  <select id="selectinviteList" resultType="java.util.Map">
+    select account,date_format(created_time,'%Y-%m-%d %H:%i:%s') created_time  from customer where invite_code = (select self_invite from customer where zid = #{zid} )
+    order by created_time DESC
+  </select>
+
+  <select id="selectCustList" resultMap="BaseResultMap">
+    select * from customer 
+    where 1=1
+    <if test="startTime!='' and endTime != '' and startTime != null and endTime != null">
+      and created_time BETWEEN #{startTime} and #{endTime}
+    </if>
+    <if test="phone!=null and phone!=''">
+      and phone like #{phone}
+    </if>
+    <if test="remark!=null and remark!=''">
+      and remark = #{remark}
+    </if>
+    <if test="allPhone!=null and allPhone!=''">
+      and all_phone like #{allPhone}
+    </if>
+    <if test="inviteCode!=null and inviteCode!=''">
+      and self_invite = #{inviteCode}
+    </if>
+    <if test="superInviteCode!=null and superInviteCode!=''">
+      and invite_code = #{superInviteCode}
+    </if>
+    <if test="state==true">
+      and state = 1
+    </if>
+    <if test="state==false">
+      and state = 0
+    </if>
+    <if test="account!=null and account!=''">
+      and account like CONCAT(CONCAT('%',#{account},'%'))
+    </if>
+     order by created_time desc
+  </select>
+
+<select id="selectByCustIdOrInviteCode" resultMap="BaseResultMap">
+   select *  from customer
+   where 1=1
+   <if test="custId != null and custId != ''">
+     and zid = #{custId}
+   </if>
+  <if test="inviteCode != null and inviteCode != ''">
+    and self_invite = #{inviteCode}
+  </if>
+</select>
+  <!-- 根据用户自己的个人邀请码，查询获取邀请人列表（含自己）。level值越低用户层级越低，即根节点的level值最大，当前用户的level值为1。 -->
+  <select id="getInviteList" parameterType="com.jinglitong.springshop.entity.Customer"
+          resultType="java.util.HashMap">
+   <![CDATA[
+      SELECT
+          T1.lvl as 'level',
+          T2.id as 'id',
+          T2.zid as 'zid',
+          T2.self_invite as 'selfInvite',
+          T2.invite_code as 'inviteCode'
+      FROM
+      (
+      SELECT
+          @child AS _self_invite,
+          (  SELECT @child := invite_code  FROM customer  WHERE self_invite = _self_invite ) AS p,
+          @l := @l + 1 AS lvl
+      FROM
+         (SELECT @child := #{selfInvite}, @l := 0) vars,
+      customer h
+      WHERE
+          @child <> ''
+      ) T1,
+      customer T2
+          where T1._self_invite = T2.self_invite
+      ORDER BY T1.lvl desc
+      ]]>
+  </select>
+
+  <resultMap id="CustOrderVOMap" type="com.jinglitong.springshop.vo.response.CustomerOrderVO" >
+    <result column="zid" property="custId" jdbcType="VARCHAR" />
+    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
+    <result column="self_invite" property="selfInvite" jdbcType="VARCHAR" />
+    <result column="order_parent" property="orderParent" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectBySubOrderId" resultMap="CustOrderVOMap">
+    select c.zid zid,
+            c.self_invite self_invite,
+            c.invite_code invite_code,
+            o.zid order_id,
+            o.sn order_sn,
+            o.order_parent order_parent
+      from customer c left join orders o on c.zid = o.cust_id
+     where  o.zid = #{subOrderId}
+  </select>
+
+  <select id="getHighLevelByCustId" resultMap="BaseResultMap">
+    SELECT * from customer c
+    where c.self_invite = (SELECT cs.invite_code from customer cs where cs.zid = #{custId})
+  </select>
+
+  <select id="getCustNoMember" resultMap="BaseResultMap">
+  	SELECT * from customer c 
+	where c.zid not in (SELECT m.cust_id from customer_member m)
+  </select>
+  
+  <select id="getCustTiYanCart" resultType='com.jinglitong.shop.vo.CustomerVo'>
+	SELECT o.create_time as createTime,o.cust_id as custId from orders o 
+	INNER JOIN orderitem item on o.zid=item.orders_id
+	INNER JOIN customer c on c.zid = o.cust_id
+	where o.`status` in (1,3) and o.order_parent='P' and item.sku_id=#{skuId}
+  </select>
+  
+  <select id="getCustByInviteCode" resultMap = "BaseResultMap">
+  	SELECT * from customer c where c.invite_code = #{inviteCode}
+  </select>
+  <select id="getCustOne" resultMap = "BaseResultMap">
+  	SELECT * from customer c
+    where c.invite_code = (SELECT cs.self_invite from customer cs where cs.zid=#{custId})
+  </select>
+  <select id="getCustByTreeLevel" resultMap = "LevelResultMap">
+  	SELECT c.*,m.level_define from customer c 
+	INNER JOIN customer_member m on c.zid=m.cust_id
+	where c.tree_level=#{treeLevel}
+  </select>
+</mapper>

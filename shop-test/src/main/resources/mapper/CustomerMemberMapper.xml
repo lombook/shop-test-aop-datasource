@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinglitong.shop.mapper.CustomerMemberMapper" >
+  <resultMap id="BaseResultMap" type="com.jinglitong.shop.entity.CustomerMember" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="VARCHAR" />
+    <result column="cust_id" property="custId" jdbcType="VARCHAR" />
+    <result column="level_define" property="levelDefine" jdbcType="VARCHAR" />
+    <result column="level_define_his" property="levelDefineHis" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="getCustTeamNums" resultType="com.jinglitong.springshop.vo.CustomerTeamVo">
+    SELECT m.level_define as levelDefine,COUNT(1) as numbers from customer c
+    INNER JOIN customer_member m on c.zid = m.cust_id
+    where c.invite_code =#{selfInvite} <!-- (SELECT cs.self_invite from customer cs where cs.zid=#{custId}) -->
+    GROUP BY m.level_define
+  </select>  
+  <select id="getMemberByCustId" resultMap="BaseResultMap">
+  	SELECT * from customer_member m 
+  	where m.cust_id = #{custId} and m.level_define != 'putong'
+  </select>
+  <select id="selectUpperCustomerMemberByCustzid"  resultMap ="BaseResultMap" >
+  	SELECT cm.* from customer_member cm 
+  		LEFT JOIN customer cupper ON cm.cust_id = cupper.zid 
+  		LEFT JOIN customer cdown on cupper.self_invite = cdown.invite_code 
+  		where cdown.zid = #{zid}
+  </select>
+    
+    <select id="getCustomerMemberList" resultMap ="BaseResultMap">
+      SELECT * from customer_member
+        where cust_id in
+      <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+        #{id}
+      </foreach>
+    </select>
+    
+    <select id="selectCustMembers" resultMap ="BaseResultMap">
+    	SELECT
+			cm.*
+		FROM
+			customer_member cm
+		JOIN customer c ON c.zid = cm.cust_id
+		<!-- WHERE
+			c.account IN (
+			'13999999999'
+			) -->
+    
+    </select>
+</mapper>

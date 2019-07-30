@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinglitong.shop.mapper.CustomerMemberTeamMapper" >
+  <resultMap id="BaseResultMap" type="com.jinglitong.shop.entity.CustomerMemberTeam" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="zid" property="zid" jdbcType="VARCHAR" />
+    <result column="cust_id" property="custId" jdbcType="VARCHAR" />
+    <result column="level_define" property="levelDefine" jdbcType="VARCHAR" />
+    <result column="putong_num" property="putongNum" jdbcType="INTEGER" />
+    <result column="vip_num" property="vipNum" jdbcType="INTEGER" />
+    <result column="zhuguan_num" property="zhuguanNum" jdbcType="INTEGER" />
+    <result column="jingli_num" property="jingliNum" jdbcType="INTEGER" />
+    <result column="hehuoren_num" property="hehuorenNum" jdbcType="INTEGER" />
+    <result column="team_num" property="teamNum" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <update id="updateNum">
+  	update customer_member_team set jingli_num = jingli_num + 1,
+  	<if test="levelDefine == 'putong'">
+  		putong_num = putong_num - 1
+  	</if>
+  	<if test="levelDefine == 'vip'">
+  		vip_num = vip_num - 1 
+  	</if>
+  	<if test="levelDefine == 'zhuguan'">
+  		zhuguan_num = zhuguan_num -1
+  	</if>
+  	where cust_id in 
+  	<foreach item="item" index="index" collection="list"
+				 open="(" separator="," close=")">
+			#{index}
+	</foreach>
+  </update>
+  
+  <update id = "updateCustTeamById" parameterType="com.jinglitong.shop.entity.CustomerMemberTeam">
+  	update 
+  		customer_member_team 
+  	set 
+  		vip_num = vip_num +1,putong_num = putong_num -1,update_time = NOW() 
+  	where cust_id = #{custId}
+  </update>
+  
+   <update id = "updateLevel" parameterType="com.jinglitong.shop.entity.CustomerMemberTeam">
+  	update 
+  		customer_member_team 
+  	set 
+  	<if test="beforeLevel == 'putong'">
+  		putong_num = putong_num - 1,
+  	</if>
+  	<if test="beforeLevel == 'vip'">
+  		vip_num = vip_num - 1,	
+  	</if>
+  	<if test="beforeLevel == 'zhuguan'">
+  		zhuguan_num = zhuguan_num - 1,	
+  	</if>
+  	<if test="beforeLevel == 'jingli'">
+  		jingli_num = jingli_num - 1,	
+  	</if>
+  	<if test="beforeLevel == 'hehuoren'">
+  		hehuoren_num = hehuoren_num - 1,	
+  	</if>
+  	
+  	
+  	<if test="afterLevel == 'putong'">
+  		putong_num = putong_num + 1,
+  	</if>
+  	<if test="afterLevel == 'vip'">
+  		vip_num = vip_num + 1,	
+  	</if>
+  	<if test="afterLevel == 'zhuguan'">
+  		zhuguan_num = zhuguan_num + 1,	
+  	</if>
+  	<if test="afterLevel == 'jingli'">
+  		jingli_num = jingli_num + 1,	
+  	</if>
+  	<if test="afterLevel == 'hehuoren'">
+  		hehuoren_num = hehuoren_num + 1,	
+  	</if>
+  		update_time = NOW() 
+  	where cust_id = #{custId}
+  </update>
+</mapper>

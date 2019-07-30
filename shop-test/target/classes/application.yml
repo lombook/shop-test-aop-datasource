@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: test
+mybatis:
+  type-aliases-package: com.jinglitong.shop.entity
+  mapper-locations: classpath:mapper/*.xml
