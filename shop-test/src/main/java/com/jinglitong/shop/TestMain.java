@@ -16,13 +16,9 @@ import com.jinglitong.shop.entity.Customer;
 import com.jinglitong.shop.entity.CustomerMember;
 import com.jinglitong.shop.mapper.CustomerMapper;
 import com.jinglitong.shop.mapper.CustomerMemberMapper;
-import com.jinglitong.shop.service.Test;
-import com.jinglitong.springshop.vo.CustomerTeamVo;
 @Component
 public class TestMain implements ApplicationRunner{
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
-	@Autowired
-    private Test Test;
 	
 	@Autowired
 	private CustomerMapper customerMapper;

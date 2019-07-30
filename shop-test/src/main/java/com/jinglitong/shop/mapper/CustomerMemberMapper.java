@@ -4,8 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.jinglitong.shop.entity.CustomerMember;
-import com.jinglitong.shop.util.MyMapper;
-import com.jinglitong.springshop.vo.CustomerTeamVo;
+import com.jinglitong.shop.utils.MyMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface CustomerMemberMapper extends MyMapper<CustomerMember> {
 
-    List<CustomerTeamVo> getCustTeamNums(@Param("selfInvite") String selfInvite);
+   void getCustTeamNums(@Param("selfInvite") String selfInvite);
 
 	CustomerMember getMemberByCustId(@Param("custId") String custId);
 

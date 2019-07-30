@@ -53,52 +53,8 @@
     <result column="level_define" property="levelDefine" jdbcType="VARCHAR" />
   </resultMap>
 
-  <resultMap id="infoResultMap" type="com.jinglitong.springshop.vo.request.CustomerVo" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="zid" property="zid" jdbcType="VARCHAR" />
-    <result column="account" property="account" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="all_phone" property="allPhone" jdbcType="VARCHAR" />
-    <result column="state" property="state" jdbcType="BIT" />
-    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
-    <result column="country_id" property="countryId" jdbcType="INTEGER" />
-    <result column="salt" property="salt" jdbcType="VARCHAR" />
-    <result column="language" property="language" jdbcType="VARCHAR" />
-    <result column="origin" property="origin" jdbcType="INTEGER" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
-    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
-    <result column="certificate_state" property="certificateState" jdbcType="BIT" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="reg_way" property="regWay" jdbcType="INTEGER" />
-    <result column="self_invite" property="selfInvite" jdbcType="VARCHAR" />
-    <result column="tree_level" property="treeLevel" jdbcType="INTEGER" />
-    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
-    <result column="favicon" property="favicon" jdbcType="VARCHAR" />
-    <result column="gender" property="gender" javaType="INTEGER"/>
-    <result column="level_define" property="levelDefine" jdbcType="VARCHAR" />
-    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
 
-    <association property="identityInfo" javaType="com.jinglitong.springshop.vo.request.IdentityInfoVo">
-      <id column="idId" property="id" jdbcType="INTEGER" />
-      <result column="idZid" property="zid" jdbcType="VARCHAR" />
-      <result column="cust_id" property="custId" jdbcType="VARCHAR" />
-      <result column="cust_name" property="custName" jdbcType="VARCHAR" />
-      <result column="identity_no" property="identityNo" jdbcType="VARCHAR" />
-      <result column="identity_type" property="identityType" jdbcType="VARCHAR" />
-      <result column="province_id" property="provinceId" jdbcType="INTEGER" />
-      <result column="city_id" property="cityId" jdbcType="INTEGER" />
-      <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
-      <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
-      <result column="auditstate" property="auditstate" jdbcType="VARCHAR" />
-      <result column="front_url" property="frontUrl" jdbcType="VARCHAR" />
-      <result column="back_url" property="backUrl" jdbcType="VARCHAR" />
-      <result column="province" property="province" jdbcType="VARCHAR" />
-      <result column="city" property="city" jdbcType="VARCHAR" />
-    </association>
-  </resultMap>
-  <select id="selectByCustId" resultMap="infoResultMap">
+  <select id="selectByCustId" >
     select *,ii.id idId ,ii.zid idZid,ai.`NAME` province,aa.`NAME` city,cm.level_define levelDefine,cm.end_time endTime from customer c left join identity_info ii
     on c.zid = ii.cust_id
     LEFT JOIN area_dic ai
@@ -163,7 +119,7 @@
   </if>
 </select>
   <!-- 根据用户自己的个人邀请码，查询获取邀请人列表（含自己）。level值越低用户层级越低，即根节点的level值最大，当前用户的level值为1。 -->
-  <select id="getInviteList" parameterType="com.jinglitong.springshop.entity.Customer"
+  <select id="getInviteList" 
           resultType="java.util.HashMap">
    <![CDATA[
       SELECT
@@ -190,24 +146,6 @@
       ]]>
   </select>
 
-  <resultMap id="CustOrderVOMap" type="com.jinglitong.springshop.vo.response.CustomerOrderVO" >
-    <result column="zid" property="custId" jdbcType="VARCHAR" />
-    <result column="invite_code" property="inviteCode" jdbcType="VARCHAR" />
-    <result column="self_invite" property="selfInvite" jdbcType="VARCHAR" />
-    <result column="order_parent" property="orderParent" jdbcType="VARCHAR" />
-    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
-    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
-  </resultMap>
-  <select id="selectBySubOrderId" resultMap="CustOrderVOMap">
-    select c.zid zid,
-            c.self_invite self_invite,
-            c.invite_code invite_code,
-            o.zid order_id,
-            o.sn order_sn,
-            o.order_parent order_parent
-      from customer c left join orders o on c.zid = o.cust_id
-     where  o.zid = #{subOrderId}
-  </select>
 
   <select id="getHighLevelByCustId" resultMap="BaseResultMap">
     SELECT * from customer c

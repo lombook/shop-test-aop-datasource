@@ -16,7 +16,7 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
 
-  <select id="getCustTeamNums" resultType="com.jinglitong.springshop.vo.CustomerTeamVo">
+  <select id="getCustTeamNums"  >
     SELECT m.level_define as levelDefine,COUNT(1) as numbers from customer c
     INNER JOIN customer_member m on c.zid = m.cust_id
     where c.invite_code =#{selfInvite} <!-- (SELECT cs.self_invite from customer cs where cs.zid=#{custId}) -->

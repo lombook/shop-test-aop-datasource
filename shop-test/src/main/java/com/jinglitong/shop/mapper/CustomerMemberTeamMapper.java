@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import com.jinglitong.shop.entity.CustomerMemberTeam;
-import com.jinglitong.springshop.utils.MyMapper;
+import com.jinglitong.shop.utils.MyMapper;
 
 public interface CustomerMemberTeamMapper extends MyMapper<CustomerMemberTeam> {
 	

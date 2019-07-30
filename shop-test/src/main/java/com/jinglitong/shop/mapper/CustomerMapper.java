@@ -1,7 +1,7 @@
 package com.jinglitong.shop.mapper;
 
 import com.jinglitong.shop.entity.Customer;
-import com.jinglitong.shop.util.MyMapper;
+import com.jinglitong.shop.utils.MyMapper;
 import com.jinglitong.shop.vo.CustomerVo;
 
 import java.util.HashMap;

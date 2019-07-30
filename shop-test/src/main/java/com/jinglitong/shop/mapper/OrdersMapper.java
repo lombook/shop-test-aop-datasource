@@ -2,7 +2,7 @@ package com.jinglitong.shop.mapper;
 
 import com.jinglitong.shop.entity.Orders;
 import com.jinglitong.shop.vo.CustomerVo;
-import com.jinglitong.springshop.utils.MyMapper;
+import com.jinglitong.shop.utils.MyMapper;
 
 import org.apache.ibatis.annotations.Param;
 

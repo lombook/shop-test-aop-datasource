@@ -1,6 +1,5 @@
 package com.jinglitong.shop.controller;
 
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,6 @@ import com.jinglitong.shop.service.CutProgramService;
  * @Author: wanghh
  * @Date: 2019/6/5 10:51
  */
-@Api(value = "会员卡佣金用户割接",tags = "会员卡佣金用户割接 API")
 @Controller
 @RequestMapping(value = "/business/cutProgram")
 public class CutProgramController {
