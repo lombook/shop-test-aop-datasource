@@ -42,9 +42,5 @@ logging:
          com.jinglitong.shop.mapper: debug	
 
 
-
-# 体验卡skuId
-tiyancard.skuid : feaed821bbd74ce69ad9cabfee4d3468
-
 level.member: hehuoren
 level.date: 2099-06-20 23:59:59
