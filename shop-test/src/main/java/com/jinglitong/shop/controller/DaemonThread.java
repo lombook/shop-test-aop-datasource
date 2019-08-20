@@ -2,9 +2,13 @@ package com.jinglitong.shop.controller;
 
 import java.util.concurrent.TimeUnit;
 
+abstract class nest {
+	abstract void add();
+}
 public class DaemonThread {
 
 	public static void main(String[] args) {
+		Thread.currentThread().getId();
 		Runtime.getRuntime().addShutdownHook(new Thread(()->System.out.println("JVM 退出了")));
 		Thread thread = new Thread(new Runnable() {
 			@Override
@@ -31,5 +35,14 @@ public class DaemonThread {
 		}
 		
 		System.out.println("主线程执行完毕!");
+		
+		new nest() {
+			
+			@Override
+			void add() {
+				
+				
+			}
+		};
 	}
 }
