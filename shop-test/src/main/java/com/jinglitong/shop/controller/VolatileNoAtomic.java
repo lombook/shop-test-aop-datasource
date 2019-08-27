@@ -20,7 +20,6 @@ public class VolatileNoAtomic extends Thread {
 	}
 
 	public static void main(String[] args) {
-
 		VolatileNoAtomic[] arr = new VolatileNoAtomic[100];
 		for (int i = 0; i < 10; i++) {
 			arr[i] = new VolatileNoAtomic();
