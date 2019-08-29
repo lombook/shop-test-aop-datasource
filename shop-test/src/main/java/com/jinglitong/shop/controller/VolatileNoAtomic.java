@@ -28,6 +28,8 @@ public class VolatileNoAtomic extends Thread {
 		for (int i = 0; i < 10; i++) {
 			arr[i].start();
 		}
+		
+		System.out.println("cpu数："+Runtime.getRuntime().availableProcessors());
 	}
 
 }
