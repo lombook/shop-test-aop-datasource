@@ -1,7 +1,7 @@
 package com.jinglitong.shop.controller;
 
 class ThreadVolatileDemo extends Thread {
-	public boolean flag = true;
+	public volatile boolean flag = true;
 
 	@Override
 	public void run() {
