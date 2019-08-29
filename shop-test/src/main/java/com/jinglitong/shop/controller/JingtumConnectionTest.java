@@ -34,12 +34,11 @@ public class JingtumConnectionTest {
 	public void test() {
 		/*getWalletAndActive();*/
 		/*AmountInfo amount = new AmountInfo();
-		amount.setCurrency("JSLASH");
-		amount.setValue("1");
-		amount.setIssuer("jGa9J9TkqtBcUoHe2zqhVFFbgUVED6o9or");
-		String hash = sendTransaction(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW", "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8", "ssSUQyB5PwLpUFpCtzUK9kMPG7WMo", amount);*/
-		
-		getSwtcBleans(JingtumConnection.getConnection(), "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8");
+		amount.setCurrency("SWT");
+		amount.setValue("0.00001");
+		String hash = sendTransaction(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW", "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8", "ssSUQyB5PwLpUFpCtzUK9kMPG7WMo", amount);
+		*/
+		//getSwtcBleans(JingtumConnection.getConnection(), "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8");
 		
 		//getTx(JingtumConnection.getConnection(), "44DE4C2E835D4B1E344C71659555B680893BEBD3BE04F7430CC9936EEADE533C");
 		
@@ -85,9 +84,7 @@ public class JingtumConnectionTest {
 		Transaction tx = remote.buildPaymentTx(from, to, amount);
 		tx.setSecret(secret);
 		List<String> memos = new ArrayList<String>();
-		memos.add("测试数据111");
-		memos.add("测试数据222");
-		memos.add("测试数据333");
+		memos.add(to);
 		tx.addMemo(memos);
 		TransactionInfo bean = tx.submit();
 		if ("0".equals(bean.getEngineResultCode())) {
