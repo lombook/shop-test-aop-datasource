@@ -32,13 +32,14 @@ import com.jinglitong.shop.jingtum.JingtumConnection;
 public class JingtumConnectionTest {
 	@Test
 	public void test() {
-		/*getWalletAndActive();*/
+		getWalletAndActive();
 		/*AmountInfo amount = new AmountInfo();
-		amount.setCurrency("SWT");
-		amount.setValue("0.00001");
+		amount.setCurrency("MEI");
+		amount.setValue("0.0000001");
+		amount.setIssuer("jGa9J9TkqtBcUoHe2zqhVFFbgUVED6o9or");
 		String hash = sendTransaction(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW", "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8", "ssSUQyB5PwLpUFpCtzUK9kMPG7WMo", amount);
 		*/
-		//getSwtcBleans(JingtumConnection.getConnection(), "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8");
+		//getSwtcBleans(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW");
 		
 		//getTx(JingtumConnection.getConnection(), "44DE4C2E835D4B1E344C71659555B680893BEBD3BE04F7430CC9936EEADE533C");
 		
@@ -57,7 +58,7 @@ public class JingtumConnectionTest {
 		AmountInfo amount = new AmountInfo();
 		amount.setCurrency("SWT");
 		amount.setValue("25");
-		String hash = sendTransaction(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW", wallet.getAddress(), "ssSUQyB5PwLpUFpCtzUK9kMPG7WMo", amount);
+		String hash = sendTransaction(JingtumConnection.getConnection(), "j3UcBBbes7HFgmTLmGkEQQShM2jdHbdGAe", wallet.getAddress(), "ssWiEpky7Bgj5GFrexxpKexYkeuUv", amount);
 		System.out.println("激活hash："+hash);
 		return wallet;
 	}
@@ -84,7 +85,7 @@ public class JingtumConnectionTest {
 		Transaction tx = remote.buildPaymentTx(from, to, amount);
 		tx.setSecret(secret);
 		List<String> memos = new ArrayList<String>();
-		memos.add(to);
+		memos.add(from);
 		tx.addMemo(memos);
 		TransactionInfo bean = tx.submit();
 		if ("0".equals(bean.getEngineResultCode())) {
@@ -111,7 +112,7 @@ public class JingtumConnectionTest {
 		AccountRelations bean = remote.requestAccountRelations(account, null, "trust");
 		for (int i = 0; i < bean.getLines().size(); i++) {
 		     Line l = bean.getLines().get(i);
-		     System.out.println(l.getCurrency() +"==="+l.getBalance());
+		     System.out.println(l.getCurrency() +"==="+l.getBalance()+"+++++"+l.getIssuer());
 		}
 		AccountOffers o = remote.requestAccountOffers(account, null);
 		return null;
