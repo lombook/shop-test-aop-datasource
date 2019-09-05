@@ -8,9 +8,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
 import com.blink.jtblc.client.Remote;
 import com.blink.jtblc.client.Transaction;
 import com.blink.jtblc.client.bean.Account;
@@ -20,7 +17,6 @@ import com.blink.jtblc.client.bean.TransactionInfo;
 import com.blink.jtblc.connection.Connection;
 import com.blink.jtblc.connection.ConnectionFactory;
 
-@SpringBootTest
 public class test{
 
  
@@ -64,7 +60,6 @@ public class test{
 		}
 	}
 	
-	@Test
 	public void getTx() {
 		String server = "wss://hc.jingtum.com:5020";
 		Connection conn = ConnectionFactory.getCollection(server);
