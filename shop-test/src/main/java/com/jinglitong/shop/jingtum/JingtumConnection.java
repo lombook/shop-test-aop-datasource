@@ -7,8 +7,8 @@ public class JingtumConnection {
 
 	private static Connection con = null;
 
-	private static String server = "ws://ts5.jingtum.com:5020";// 测试环境
-	//private static String server = "wss://s.jingtum.com:5020";// 生产环境
+	//private static String server = "ws://ts5.jingtum.com:5020";// 测试环境
+	private static String server = "wss://s.jingtum.com:5020";// 生产环境
 
 	public static Connection getConnection() {
 
