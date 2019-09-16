@@ -5,7 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-// udp客户端代码
+// udp服务器端
 public class UdpClient {
 
 	 public static void main(String[] args) throws IOException {
@@ -20,7 +20,7 @@ public class UdpClient {
 	
 }
 
-//socket服务器端
+//socket客户端代码
 class UdpSocketServer {
 
 	public static void main(String[] args) throws IOException {
