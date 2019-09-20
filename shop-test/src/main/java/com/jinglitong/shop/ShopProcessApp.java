@@ -25,6 +25,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class ShopProcessApp {
     public static void main(String[] args){
         SpringApplication.run(ShopProcessApp.class,args);
-        System.out.println("ShopProcessApp started....=====ppp");
+        System.out.println("ShopProcessApp started....merge");
     }
 }
