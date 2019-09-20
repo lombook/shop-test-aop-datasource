@@ -1,4 +1,4 @@
-package com.jinglitong.shop.controller.error;
+package com.jinglitong.shop.error;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,8 @@ import org.springframework.validation.FieldError;
  */
 @ControllerAdvice(basePackages = "com.jinglitong.shop.controller")
 public class GlobalExceptionHandler {
-
+ 
+	
 	/**
 	 * 请求参数错误
 	 */
