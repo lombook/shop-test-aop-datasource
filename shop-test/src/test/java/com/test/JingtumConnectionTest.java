@@ -1,4 +1,4 @@
-package com.test;
+/*package com.test;
 
 
 import java.util.ArrayList;
@@ -33,23 +33,23 @@ public class JingtumConnectionTest {
 	@Test
 	public void test() {
 		getWalletAndActive();
-		/*AmountInfo amount = new AmountInfo();
+		AmountInfo amount = new AmountInfo();
 		amount.setCurrency("MEI");
 		amount.setValue("0.0000001");
 		amount.setIssuer("jGa9J9TkqtBcUoHe2zqhVFFbgUVED6o9or");
 		String hash = sendTransaction(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW", "jBFMwiM62fJCwdh6cM1DSoSYDSCdWpezt8", "ssSUQyB5PwLpUFpCtzUK9kMPG7WMo", amount);
-		*/
+		
 		//getSwtcBleans(JingtumConnection.getConnection(), "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW");
 		
 		//getTx(JingtumConnection.getConnection(), "44DE4C2E835D4B1E344C71659555B680893BEBD3BE04F7430CC9936EEADE533C");
 		
 	}
 	
-	/**
+	*//**
 	 * 
 	 * 功能说明:生成钱包并激活，返回钱包公钥私钥
 	 * @return
-	 */
+	 *//*
 	public Wallet getWalletAndActive () {
 		Wallet wallet = Wallet.generate();
 		System.out.println("address:" + wallet.getAddress());
@@ -62,7 +62,7 @@ public class JingtumConnectionTest {
 		System.out.println("激活hash："+hash);
 		return wallet;
 	}
-	/**
+	*//**
 	 * 
 	 * 功能说明:转账
 	 * @param conn 连接
@@ -71,16 +71,16 @@ public class JingtumConnectionTest {
 	 * @param secret 发出方秘钥
 	 * @param amount 币种 + 金额
 	 * @return 返回转账hash
-	 */
+	 *//*
 	public  String sendTransaction(Connection conn,String from,String to,String secret,AmountInfo amount) {
 		Remote remote = new Remote(conn, false);
 		// from = "jfg67BeAqJ8PAha691X3bqQt6AwPPN1MaW";
 		//String to = "jPk5gyeqZmfbpaTtT1RiBgVe1xUb9mPGgE";
 		//String secret = "ssSUQyB5PwLpUFpCtzUK9kMPG7WMo";
-		/*AmountInfo amount = new AmountInfo();
+		AmountInfo amount = new AmountInfo();
 		// amount.setCurrency("CNY");
 		amount.setCurrency("SWT");
-		amount.setValue("25");*/
+		amount.setValue("25");
 		// amount.setIssuer("jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS");
 		Transaction tx = remote.buildPaymentTx(from, to, amount);
 		tx.setSecret(secret);
@@ -97,13 +97,13 @@ public class JingtumConnectionTest {
 		}
 	}
 	
-	/**
+	*//**
 	 * 
 	 * 功能说明: 获取余额
 	 * @param conn
 	 * @param account
 	 * @return
-	 */
+	 *//*
 	public  AccountData getSwtcBleans(Connection conn,String account) {
 		Remote remote = new Remote(conn, false);
 		//String account = "jPk5gyeqZmfbpaTtT1RiBgVe1xUb9mPGgE";
@@ -136,3 +136,4 @@ public class JingtumConnectionTest {
 		return bean;
 	}
 }
+*/

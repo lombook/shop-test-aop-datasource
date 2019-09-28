@@ -17,13 +17,26 @@ public class Cglib implements MethodInterceptor {
 
 	}
 	public static void main(String[] args) {
-		Cglib cglib = new Cglib();
+		/*Cglib cglib = new Cglib();
 		Enhancer enhancer = new Enhancer();
 		enhancer.setSuperclass(XiaoMing.class);
 		enhancer.setCallback(cglib);
 		Hose hose = (Hose) enhancer.create();
 		hose.mai();
-		hose.mai2();
+		hose.mai2();*/
+		/*int age = 6;
+		System.out.println("age=" + ++age);
+		System.out.println("age=" + age++);
+		System.out.println(++age);
+		System.out.println(age++);
+		System.out.println(age);*/
+		
+		/*int index = 0;
+        String[] names = {"令狐冲", "张无忌", "韦小宝", "杨过", "段誉", "乔峰"};
+        System.out.println(names[index++]); //打印出令狐冲
+        System.out.println(names[index]);   //打印出张无忌 
+        System.out.println(names[++index]);  
+        System.out.println(names[index]); */  
 	}
 }
 
