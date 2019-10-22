@@ -1,9 +1,13 @@
 package com.jinglitong.shop;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.jinglitong.shop.datasource.DynamicDataSourceConfig;
@@ -26,5 +30,10 @@ public class ShopProcessApp {
     public static void main(String[] args){
         SpringApplication.run(ShopProcessApp.class,args);
         System.out.println("ShopProcessApp started....merge222");
+        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("");
+        app.getBean("userService");
+        //BeanDefinition
+        //NamespaceHandlerSupport
+        //AspectJAutoProxyBeanDefinitionParser
     }
 }

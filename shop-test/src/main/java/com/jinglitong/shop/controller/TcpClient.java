@@ -24,6 +24,7 @@ class TcpServer {
 		ServerSocket serverSocket = new ServerSocket(8080);
 		// 等待客户端请求
 		Socket accept = serverSocket.accept();
+		accept.setKeepAlive(true);
 		InputStream inputStream = accept.getInputStream();
 		// 转换成string类型
 		byte[] buf = new byte[1024];
