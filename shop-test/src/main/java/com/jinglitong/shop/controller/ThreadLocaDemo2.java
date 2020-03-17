@@ -1,7 +1,15 @@
 package com.jinglitong.shop.controller;
 
 import java.util.Collections;
-
+/**
+ * 
+ * Copyright (c) 2020, 井立通
+ * All rights reserved.
+ * 文件名称: ThreadLocaDemo2.java
+ * 作        者: yxl 2020年3月17日
+ * 创建时间: 2020年3月17日
+ * 功能说明:test
+ */
 class Res {
 	// 生成序列号共享变量
 	public static Integer count = 0;
